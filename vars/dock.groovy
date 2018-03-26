@@ -51,6 +51,12 @@ def rm(String name) {
 }
 
 @NonCPS
+def exec(String name, String dockerCmd = "") {
+  def dCmd = dockerCmd == null ? "" : dockerCmd
+  sh "docker exec ${containerName(name)} ${dCmd}"
+}
+
+@NonCPS
 def cleanup(List containers) {
   stage('Cleanup') {
     containers.each { name ->
