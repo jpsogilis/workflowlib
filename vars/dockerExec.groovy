@@ -1,4 +1,4 @@
-def call(Map config, String title = 'test') {
+def call(Map config, String title) {
   stage(title) {
     dock.exec(config.name, config.dockerCmd)
   }
