@@ -54,7 +54,7 @@ def rm(String name) {
 def exec(String name, String dockerCmd = "", String dockerArgs = "") {
   if (dockerCmd != null) {
     def dArgs = dockerArgs == null ? "" : dockerArgs
-    sh "docker exec ${containerName(name)} ${dArgs} ${dCmd}"
+    sh "docker exec ${containerName(name)} ${dArgs} ${dockerCmd}"
   }
 }
 
