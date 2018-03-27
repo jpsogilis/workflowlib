@@ -51,10 +51,13 @@ def rm(String name) {
 }
 
 @NonCPS
-def exec(String name, String dockerCmd = "", String dockerArgs = "") {
+def exec(String name, String titleExec = "", String dockerCmd = "", String dockerArgs = "") {
   if (dockerCmd != null) {
     def dArgs = dockerArgs == null ? "" : dockerArgs
-    sh "docker exec ${containerName(name)} ${dArgs} ${dockerCmd}"
+    def tExec = titleExec == null ? 'Undefined test' : titleExec
+    stage(tExec) {
+      sh "docker exec ${containerName(name)} ${dArgs} ${dockerCmd}"
+    }
   }
 }
 
