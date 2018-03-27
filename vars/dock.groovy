@@ -17,7 +17,7 @@ def unitTests(String name, String junitFile) {
     def toCopy = [:]
     toCopy[junitFile] = 'tests.xml'
     copy(name, toCopy)
-    junit(testResults: 'tests.xml')
+    junit 'tests.xml'
   }
 }
 
