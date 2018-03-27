@@ -56,7 +56,7 @@ def exec(String name, String titleExec = "", String dockerCmd = "", String docke
     def dArgs = dockerArgs == null ? "" : dockerArgs
     def tExec = titleExec == null ? 'Undefined test' : titleExec
     stage(tExec) {
-      sh "docker exec ${containerName(name)} ${dArgs} ${dockerCmd}"
+      sh "docker exec ${dArgs} ${containerName(name)} ${dockerCmd}"
     }
   }
 }
