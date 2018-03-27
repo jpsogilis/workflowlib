@@ -15,9 +15,9 @@ def run(String name, String dockerArgs = "") {
 def unitTests(String name, String junitFile) {
   if (junitFile != null) {
     def toCopy = [:]
-    toCopy[junitFile] = 'tests.xml'
+    toCopy[junitFile] = 'test-results.xml'
     copy(name, toCopy)
-    junit('tests.xml')
+    junit('test-results.xml')
   }
 }
 
