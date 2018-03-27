@@ -46,6 +46,11 @@ def cp(String name, String filesIn, String filesOut) {
 }
 
 @NonCPS
+def stop(String name) {
+  sh "docker stop ${containerName(name)}"
+}
+
+@NonCPS
 def rm(String name) {
   sh "docker rm ${containerName(name)}"
 }
