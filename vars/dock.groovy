@@ -51,9 +51,11 @@ def rm(String name) {
 }
 
 @NonCPS
-def exec(String name, String dockerCmd = "") {
-  def dCmd = dockerCmd == null ? "" : dockerCmd
-  sh "docker exec ${containerName(name)} ${dCmd}"
+def exec(String name, String dockerCmd = "", String dockerArgs = "") {
+  if (dockerCmd != null) {
+    def dArgs = dockerArgs == null ? "" : dockerArgs
+    sh "docker exec ${containerName(name)} ${dArgs} ${dCmd}"
+  }
 }
 
 @NonCPS
